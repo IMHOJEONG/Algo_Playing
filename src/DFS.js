@@ -1,5 +1,8 @@
 import cytoscape from 'cytoscape';
-
+import Data from './data';
+import Style from './style';
+import Animation from './animation';
+import dfsinnerSection from './dfsinnerSection';
 
 class Graph  {
     constructor({ $app, initialState }){
@@ -12,7 +15,6 @@ class Graph  {
         this.render();
        
     }
-
 
     setState(nextState) {
         this.state = nextState;
@@ -38,21 +40,55 @@ class DFS extends Graph{
         super({$app, initialState});
         // console.log(this.$target)
         let cy = cytoscape({
-            container: $app
+            container: $app,
+            style: Style
         });
-        $app.appendChild(document.createTextNode('a'));
+        // $app.appendChild(document.createTextNode('a'));
         
         this.makePoint(cy);
-
+        this.playDfs(cy);
+        // this.playAnimation(cy);
     }
 
     makePoint(cy){
-        cy.add({
-            group: 'nodes',
-            data: { weight: 75 },
-            position: { x: 200, y: 200 }
-        });
+        cy.add(
+            Data
+           );
     }
+
+    playDfs(cy){
+        const dfs = cy.elements().dfs(
+            dfsinnerSection
+        )
+        const path = dfs.path;
+        // path.select();
+        path.forEach((p)=>{
+            console.log(p.id())
+        }); 
+        let i = 0;
+        const delayfunc = function(){
+            // for(let i = 0; i < path.length ; i++){
+
+            //     // console.log('test')
+            //     path[i].addClass('visited');
+            //     setTimeout(delayfunc, 2000);
+            // }
+            if( i < path.length){
+                
+                path[i].addClass('visited');
+                
+                i++;
+                setTimeout(delayfunc, 2000);
+
+            }
+        }
+        delayfunc();
+    }
+
+    // playAnimation(cy) {
+    //     const animate = cy.$("#node1").animation(Animation);
+    //     animate.play();
+    // }
 }
 
 const graphs = new DFS({
