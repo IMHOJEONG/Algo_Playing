@@ -1,8 +1,9 @@
 import cytoscape from 'cytoscape';
 import Data from './data';
-import Style from './style';
+import Style from './style/style';
 import Animation from './animation';
 import dfsinnerSection from './dfsinnerSection';
+import MonacoEditor from './monaco-editor/setting';
 
 class Graph  {
     constructor({ $app, initialState }){
@@ -33,7 +34,6 @@ const initialState = {
 };
 
 
-
 class DFS extends Graph{
     constructor({$app, initialState}){
 
@@ -48,6 +48,11 @@ class DFS extends Graph{
         this.makePoint(cy);
         this.playDfs(cy);
         // this.playAnimation(cy);
+        this.setEditor();
+    }
+
+    setEditor(){
+        MonacoEditor();
     }
 
     makePoint(cy){
@@ -83,6 +88,10 @@ class DFS extends Graph{
             }
         }
         delayfunc();
+    }
+
+    clickButton() {
+        
     }
 
     // playAnimation(cy) {

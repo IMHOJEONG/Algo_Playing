@@ -5,10 +5,11 @@ const nodes = [
             data: { 
                 id: 'node1',
                 weight: 75,
+                shape: 'triangle'
                 
             },
             position: { x: 500, y: 500 },
-            label: 'node1'
+            label: 'node1',
     },
     {
         group: 'nodes',
@@ -17,7 +18,7 @@ const nodes = [
                 weight: 150,
                 
             },
-            position: { x: 100, y: 300 }
+            position: { x: 300, y: 300 }
     },
     {
         group: 'nodes',
@@ -35,7 +36,7 @@ const nodes = [
                 weight: 150,
                 
             },
-            position: { x: 200, y: 450 }
+            position: { x: 250, y: 450 }
     },
     {
         group: 'nodes',
@@ -44,7 +45,7 @@ const nodes = [
                 weight: 150,
                 
             },
-            position: { x: 450, y: 200 }
+            position: { x: 500, y: 700 }
         },
         {
             group: 'nodes',
@@ -53,7 +54,7 @@ const nodes = [
                     weight: 150,
                     
                 },
-                position: { x: 550, y: 200 }
+                position: { x: 500, y: 200 }
         },
         {
             group: 'nodes',
@@ -71,7 +72,7 @@ const nodes = [
                     weight: 200,
                     
                 },
-                position: { x: 800, y: 300 }
+                position: { x: 700, y: 300 }
         },
         {
             group: 'nodes',
@@ -80,7 +81,7 @@ const nodes = [
                     weight: 200,
                     
                 },
-                position: { x: 700, y: 450 }
+                position: { x: 700, y: 500 }
         },
         {
             group: 'nodes',
@@ -89,7 +90,7 @@ const nodes = [
                     weight: 200,
                     
                 },
-                position: { x: 200, y: 700 }
+                position: { x: 250, y: 700 }
         },
         {
             group: 'nodes',
@@ -170,7 +171,7 @@ const edges = [
         group: 'edges',
             data: { 
                 id: 'edge8',
-                source: 'node1',
+                source: 'node8',
                 target: 'node9'
                 
             },
