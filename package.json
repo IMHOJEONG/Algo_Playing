@@ -1,18 +1,16 @@
 {
-  "dependencies": {
-    "cytoscape": "^3.20.0",
-    "monaco-editor": "^0.31.1",
-    "monaco-editor-webpack-plugin": "^7.0.1"
-  },
+  "name": "root",
+  "private": true,
   "devDependencies": {
-    "css-loader": "^6.5.1",
-    "file-loader": "^6.2.0",
-    "html-webpack-plugin": "^5.5.0",
-    "mini-css-extract-plugin": "2.4.5",
-    "style-loader": "^3.3.1",
-    "url-loader": "^4.1.1",
-    "webpack": "^5.66.0",
-    "webpack-cli": "^4.9.1",
-    "webpack-dev-server": "^4.7.3"
-  }
+    "lerna": "^4.0.0"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "webpack"
+    ]
+  },
+  "version": "0.0.0"
 }
