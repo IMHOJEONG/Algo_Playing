@@ -1,16 +1,12 @@
 {
   "name": "root",
   "private": true,
-  "devDependencies": {
-    "lerna": "^4.0.0"
-  },
   "workspaces": {
     "packages": [
       "packages/*"
-    ],
-    "nohoist": [
-      "webpack"
     ]
   },
-  "version": "0.0.0"
+  "installConfig": {},
+  "version": "0.0.0",
+  "packageManager": "yarn@3.1.1"
 }
