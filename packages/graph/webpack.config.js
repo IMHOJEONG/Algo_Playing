@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const MonacoWebpackPlugin = require("monaco-editor-webpack-plugin");
+const devMode = process.env.NODE_ENV !== "production";
 
 const PnpWebpackPlugin = require(`pnp-webpack-plugin`);
 const path = require("path")
@@ -43,7 +44,7 @@ module.exports = {
                 use: [
                   
                   {
-                    loader: MiniCssExtractPlugin.loader,
+                    loader: devMode ? "style-loader" : MiniCssExtractPlugin.loader,
                   }, {
                   loader: 'css-loader',
                 }],
@@ -61,18 +62,32 @@ module.exports = {
 
         ]
     },
-    plugins:[new HtmlWebpackPlugin({
-      title:'Algo Test',
-      "minify": {
-        collapseWhitespace: true
-      },
-      hash: true,
-      template: './src/DFS.html'
-    })
-    ,
-    new MiniCssExtractPlugin(),
-    new MonacoWebpackPlugin(),
-    
-    ]
+    plugins: [].concat(
+      devMode ? 
+      [new HtmlWebpackPlugin({
+        title:'Algo Test',
+        "minify": {
+          collapseWhitespace: true
+        },
+        hash: true,
+        template: './src/DFS.html'
+      })
+      ,
+      new MonacoWebpackPlugin()] 
+      : 
+      [new HtmlWebpackPlugin({
+        title:'Algo Test',
+        "minify": {
+          collapseWhitespace: true
+        },
+        hash: true,
+        template: './src/DFS.html'
+      })
+      ,
+      new MiniCssExtractPlugin(),
+      new MonacoWebpackPlugin(),
+      
+      ]
+    )
     
 }

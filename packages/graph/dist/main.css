@@ -84,3 +84,13 @@ article {
     width: inherit;
     height: inherit;
 }
+
+#container {
+    width:inherit;
+    height: 70%;
+}
+
+#compile {
+    width:inherit;
+    height: 30%;
+}

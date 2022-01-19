@@ -30,3 +30,18 @@ article {
     width: inherit;
     height: inherit;
 }
+
+#container {
+    width:inherit;
+    height: 70%;
+}
+
+#compiler {
+    width:inherit;
+    height: 30%;
+    display: flex;
+}
+
+#compiler > * {
+    width:inherit;
+}
