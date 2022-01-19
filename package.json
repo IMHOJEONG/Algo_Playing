@@ -8,5 +8,11 @@
   },
   "installConfig": {},
   "version": "0.0.0",
-  "packageManager": "yarn@3.1.1"
+  "packageManager": "yarn@3.1.1",
+  "devDependencies": {
+    "webpack": "^5.66.0"
+  },
+  "dependencies": {
+    "npm": "latest"
+  }
 }
