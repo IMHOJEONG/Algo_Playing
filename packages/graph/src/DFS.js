@@ -4,9 +4,9 @@ import Style from './style/style';
 import Animation from './animation';
 import dfsinnerSection from './dfsinnerSection';
 import MonacoEditor from './monaco-editor/setting';
-import './reset.css';
-import './DFS.css';
-
+import './reset.scss';
+import './DFS.scss';
+import './test.scss';
 
 const $app = document.getElementById("app");
 const initialState = {

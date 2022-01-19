@@ -1,0 +1,47 @@
+body {
+    overflow: hidden;
+}
+
+header {
+    font-weight: bold;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4em;
+    height: 10vh;
+    color:#093979;
+}
+
+main {
+    display: flex;
+}
+
+article {
+    width: 50vw;
+    height: 90vh;
+}
+
+@font-face {
+    font-family: 'codicon';
+    src: url('https://www.cdnpkg.com/monaco-editor/file/codicon.ttf/') format('truetype');
+}
+
+#app {
+    width: inherit;
+    height: inherit;
+}
+
+#container {
+    width:inherit;
+    height: 70%;
+}
+
+#compiler {
+    width:inherit;
+    height: 30%;
+    display: flex;
+}
+
+#compiler > * {
+    width:inherit;
+}

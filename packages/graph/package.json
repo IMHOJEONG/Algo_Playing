@@ -2,15 +2,21 @@
   "name": "graph",
   "dependencies": {
     "cytoscape": "^3.20.0",
+    "material-components-web": "^13.0.0",
     "monaco-editor": "^0.31.1",
     "monaco-editor-webpack-plugin": "^7.0.1"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.2",
     "css-loader": "^6.5.1",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "2.4.5",
     "pnp-webpack-plugin": "^1.7.0",
+    "postcss": "^8.4.5",
+    "postcss-loader": "^6.2.1",
+    "sass": "^1.49.0",
+    "sass-loader": "^12.4.0",
     "style-loader": "^3.3.1",
     "url-loader": "^4.1.1",
     "webpack": "^5.66.0",
