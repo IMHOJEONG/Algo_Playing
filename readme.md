@@ -33,3 +33,19 @@
   - webpack은 webpack-cli하고 의존성이 있음 
 
   - [여기](https://github.com/yarnpkg/berry/issues/556)에서 알려주는 방법 해봤지만, yarn workspace로 yarn install을 통해 사용하는 것이 더 잘됨
+
+### 2022.01.20 - webpack multi entry, sass-loader 관련 적용
+ 
+ - [링크](https://stackoverflow.com/questions/39798095/multiple-html-files-using-webpack/63385300)에서 참고해서 webpack 설정 변경 
+
+ - material-components-web을 webpack에서 사용시 sass-loader에서 importer를 webpack 옵션에서 제거해주어야 빌드시 오류가 나지 않는다. 
+
+- webpack으로 빌드하다보니, bundle 크기가 11.5M로 너무 큼 
+
+  - 웹 페이지를 다운로드 받을 때마다 다운받을 것인가?
+
+- 사이즈를 체크해보고 확인하자 
+
+    - webpack-bundle-analyzer로!
+
+  

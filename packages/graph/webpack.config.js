@@ -13,9 +13,29 @@ const PUBLIC_PATH = path.resolve(__dirname, 'dist');
 // const MONACO_DIR = path.resolve(__dirname, './node_modules/monaco-editor');
 // const MONACO_DIR = path.resolve(__dirname, '.yarn/cache/monaco-editor-npm-0.31.1-d8d5ee78bb-65be40c557.zip/node_modules/monaco-editor/');
 
+const htmlNames = ['index', 'DFS'];
+
+const HtmlPlugins = htmlNames.map(name => {
+  return new HtmlWebpackPlugin({
+    title:`${name}`,
+    "minify": {
+      collapseWhitespace: true
+    },
+    hash: true,
+    filename: `${name}.html`,
+    template: `./src/${name}.html`,
+    chunks: [`${name}`]
+  })
+});
+
+
+
 module.exports = {
     mode:'development',
-    entry: './src/DFS.js',
+    entry: {
+      index: './src/index.js',
+      DFS: './src/DFS.js',
+    },
     output: {
         filename: '[name].[contenthash].js',
         path:PUBLIC_PATH,
@@ -86,7 +106,6 @@ module.exports = {
                     loader: 'sass-loader',
                     options: {
                       implementation: require('sass'),
-                      webpackImporter: false,
                       sassOptions: {
                         includePaths: ['./.yarn']
                       },
@@ -99,30 +118,12 @@ module.exports = {
     },
     plugins: [].concat(
       devMode ? 
-      [new HtmlWebpackPlugin({
-        title:'Algo Test',
-        "minify": {
-          collapseWhitespace: true
-        },
-        hash: true,
-        template: './src/DFS.html'
-      })
-      ,
-      new MonacoWebpackPlugin()] 
+      [new MonacoWebpackPlugin()].concat(HtmlPlugins) 
       : 
-      [new HtmlWebpackPlugin({
-        title:'Algo Test',
-        "minify": {
-          collapseWhitespace: true
-        },
-        hash: true,
-        template: './src/DFS.html'
-      })
-      ,
-      new MiniCssExtractPlugin(),
-      new MonacoWebpackPlugin(),
-      
+      [new MiniCssExtractPlugin(),
+      new MonacoWebpackPlugin()
       ]
+      .concat(HtmlPlugins)
     )
     
 }

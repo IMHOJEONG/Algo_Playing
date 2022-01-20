@@ -1,3 +1,6 @@
+@use '@material/button/mdc-button';
+@use '@material/button';
+
 body {
     overflow: hidden;
 }
@@ -44,4 +47,8 @@ article {
 
 #compiler > * {
     width:inherit;
+}
+
+button {
+    @include button.container-fill-color(darksalmon);
 }
