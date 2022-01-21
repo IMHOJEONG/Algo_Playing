@@ -20,6 +20,7 @@
     "sass": "^1.49.0",
     "sass-loader": "^12.4.0",
     "style-loader": "^3.3.1",
+    "terser-webpack-plugin": "^5.3.0",
     "url-loader": "^4.1.1",
     "webpack": "^5.66.0",
     "webpack-bundle-analyzer": "^4.5.0",
@@ -29,6 +30,7 @@
   "scripts": {
     "install": "yarn install",
     "test": "webpack",
-    "dev": "webpack serve"
+    "dev": "webpack serve",
+    "check": "node --inspect --inspect-brk .yarn/cache/webpack-dev-server-npm-4.7.3-fa508b7d1a-6062db1ba6.zip/node_modules/webpack-dev-server/bin/webpack-dev-server.js"
   }
 }

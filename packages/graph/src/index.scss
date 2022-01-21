@@ -1,0 +1,32 @@
+@use './reset.scss';
+@use '@material/button/mdc-button';
+@use '@material/button';
+
+@font-face {
+    font-family: 'hsyuji';
+    src: url('./fonts/hsyuji.ttf') format('truetype');
+}
+
+body {
+    display: flex;
+}
+
+nav {
+    width: 10vw;
+    height: 100vh;
+    background: rgb(92,63,212);
+    background: linear-gradient(180deg, rgba(92,63,212,1) 33%, rgba(60,125,206,1) 66%, rgba(4,70,189,1) 100%);
+}
+
+section {
+    width: 90vw;
+    height: 100vh;
+}
+
+.icons {
+    font-size: 3em;
+    margin: 0 auto;
+    font-family: 'hsyuji', Arial, Helvetica, sans-serif;
+}
+
+test2

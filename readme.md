@@ -48,4 +48,6 @@
 
     - webpack-bundle-analyzer로!
 
-  
+- 어떻게 하면 번들 사이즈를 더욱 줄일 수 있을까 => uglify => terser-webpack-plugin
+
+  - .yarn에 있는 파일들도 큰편 

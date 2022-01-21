@@ -10,8 +10,19 @@ const path = require("path")
 const APP_DIR = path.resolve(__dirname, 'src');
 const YARN_DIR = path.resolve(__dirname, '.yarn');
 const PUBLIC_PATH = path.resolve(__dirname, 'dist');
-// const MONACO_DIR = path.resolve(__dirname, './node_modules/monaco-editor');
-// const MONACO_DIR = path.resolve(__dirname, '.yarn/cache/monaco-editor-npm-0.31.1-d8d5ee78bb-65be40c557.zip/node_modules/monaco-editor/');
+
+// Bundle Optimization
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const TerserPlugin = require('terser-webpack-plugin');
+
+const CustomBundleSetting = () => { return new BundleAnalyzerPlugin({
+  
+    analyzerMode: 'static',
+    reportFilename: '../error_note/test.html',
+    openAnalyzer: false
+  })
+
+};
 
 const htmlNames = ['index', 'DFS'];
 
@@ -28,8 +39,6 @@ const HtmlPlugins = htmlNames.map(name => {
   })
 });
 
-
-
 module.exports = {
     mode:'development',
     entry: {
@@ -37,6 +46,7 @@ module.exports = {
       DFS: './src/DFS.js',
     },
     output: {
+        // filename: devMode ? '[name].js' : '[name].[contenthash].js',
         filename: '[name].[contenthash].js',
         path:PUBLIC_PATH,
         clean: true
@@ -60,6 +70,11 @@ module.exports = {
     },
     module: {
         rules: [
+
+          {
+            test: /\.ttf/,
+            type: 'asset/resource'
+          },
             {
                 test: /\.css$/,
                 include: APP_DIR,
@@ -118,12 +133,19 @@ module.exports = {
     },
     plugins: [].concat(
       devMode ? 
-      [new MonacoWebpackPlugin()].concat(HtmlPlugins) 
+      [new MonacoWebpackPlugin(),
+        CustomBundleSetting()
+      ].concat(HtmlPlugins) 
       : 
       [new MiniCssExtractPlugin(),
-      new MonacoWebpackPlugin()
+      new MonacoWebpackPlugin(),
+        CustomBundleSetting() 
       ]
       .concat(HtmlPlugins)
-    )
+    ),
+    optimization: {
+      minimize: true,
+      minimizer: [new TerserPlugin()]
+    }
     
 }
