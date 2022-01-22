@@ -46,8 +46,8 @@ module.exports = {
       DFS: './src/DFS.js',
     },
     output: {
-        // filename: devMode ? '[name].js' : '[name].[contenthash].js',
-        filename: '[name].[contenthash].js',
+        filename: devMode ? '[name].js' : '[name].[contenthash].js',
+        // filename: '[name].[contenthash].client-bundle.js',
         path:PUBLIC_PATH,
         clean: true
       },
