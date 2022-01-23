@@ -24,7 +24,15 @@ section {
 }
 
 .icons {
-    font-size: 3em;
+    font-size: 1em;
     margin: 0 auto;
     font-family: 'hsyuji', Arial, Helvetica, sans-serif;
+}
+
+.index_button {
+    width: 10vw;
+    height: 10vh;
+    background-color: blue;
+    color: red;
+    font-size: 2em;
 }

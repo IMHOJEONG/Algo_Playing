@@ -52,6 +52,7 @@ module.exports = {
         clean: true
       },
     devServer: {
+        hot: true,
         static: {
             directory: PUBLIC_PATH,
           },
