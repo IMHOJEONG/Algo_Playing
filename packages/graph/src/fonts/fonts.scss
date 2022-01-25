@@ -1,0 +1,7 @@
+@mixin getFont($name: 'codicon') {
+    @font-face {
+        font-family: $name;
+        src: url('../../fonts/#{$name}.ttf') format('truetype');
+    }
+}
+

@@ -24,7 +24,7 @@ const CustomBundleSetting = () => { return new BundleAnalyzerPlugin({
 
 };
 
-const htmlNames = ['Index', 'DFS'];
+const htmlNames = ['index', 'DFS'];
 
 const HtmlPlugins = htmlNames.map(name => {
   return new HtmlWebpackPlugin({
@@ -42,14 +42,14 @@ const HtmlPlugins = htmlNames.map(name => {
 module.exports = {
     mode:'development',
     entry: {
-      home: './src/pages/Home/Index.js',
+      index: './src/pages/Home/index.js',
       DFS: './src/pages/DFS/DFS.js',
     },
     output: {
         filename: devMode ? '[name].js' : '[name].[contenthash].js',
         // filename: '[name].[contenthash].client-bundle.js',
         path:PUBLIC_PATH,
-        clean: true
+        clean: true,
       },
     devServer: {
         hot: true,
@@ -135,7 +135,7 @@ module.exports = {
     plugins: [].concat(
       devMode ? 
       [new MonacoWebpackPlugin(),
-        CustomBundleSetting()
+        CustomBundleSetting(),
       ].concat(HtmlPlugins) 
       : 
       [new MiniCssExtractPlugin(),

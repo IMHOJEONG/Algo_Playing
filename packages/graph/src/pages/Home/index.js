@@ -1,26 +1,30 @@
-import './Index.scss';
 import '../../common/reset.scss';
+import './index.scss';
 import Background from './Background.js';
-import Header from './Header.js';
+import Header from './header.js';
 
 class Index {
-  constructor() {
-    const $app = document.querySelector('body');
-    const initialState = {
-      circles: ["Brute Force", "Graph", "Binary Search", "Sorting"]  
-    };
-    new Background({
-      $app,
-      initialState
-    })
-    new Header({
-      $app,
-      initialState
-    })
+  constructor({ $app,
+    initialState,
+    HeaderState}) {
+      new Background({ $app,
+        initialState });
+      new Header({ $app,
+        HeaderState});
   }
 }
-
-new Index();
+const $app = document.querySelector('body');
+const initialState = {
+  circles: ["Brute Force", "Graph", "Binary Search", "Sorting", 'DP']  
+};
+const HeaderState = {
+  datas: ["Info", "Algorithms", "made by"]
+};
+new Index({
+  $app,
+  initialState,
+  HeaderState
+});
   
   // let circles = [];
   
