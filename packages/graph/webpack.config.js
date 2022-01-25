@@ -24,7 +24,7 @@ const CustomBundleSetting = () => { return new BundleAnalyzerPlugin({
 
 };
 
-const htmlNames = ['index', 'DFS'];
+const htmlNames = ['Index', 'DFS'];
 
 const HtmlPlugins = htmlNames.map(name => {
   return new HtmlWebpackPlugin({
@@ -34,7 +34,7 @@ const HtmlPlugins = htmlNames.map(name => {
     },
     hash: true,
     filename: `${name}.html`,
-    template: `./src/${name}.html`,
+    template: `./src/template/${name}.html`,
     chunks: [`${name}`]
   })
 });
@@ -42,8 +42,8 @@ const HtmlPlugins = htmlNames.map(name => {
 module.exports = {
     mode:'development',
     entry: {
-      index: './src/index.js',
-      DFS: './src/DFS.js',
+      home: './src/pages/Home/Index.js',
+      DFS: './src/pages/DFS/DFS.js',
     },
     output: {
         filename: devMode ? '[name].js' : '[name].[contenthash].js',
