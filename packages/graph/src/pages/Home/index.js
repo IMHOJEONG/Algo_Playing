@@ -7,10 +7,11 @@ class Index {
   constructor({ $app,
     initialState,
     HeaderState}) {
-      new Background({ $app,
-        initialState });
       new Header({ $app,
         HeaderState});
+      new Background({ $app,
+        initialState });
+      
   }
 }
 const $app = document.querySelector('body');
