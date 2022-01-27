@@ -1,9 +1,10 @@
 import './header.scss';
+import logo from '../../logo/logo_75px.svg';
+import logoWebp from '../../logo/logo_75px.webp';
 class HeaderComponent {
     constructor(state) {
         console.log(state);
         this.state = state;
-        this.answer = `<div class="headerComponent">}${this.state}</div>`;
         this.render();
     }
 
@@ -13,7 +14,7 @@ class HeaderComponent {
     }
 
     render(){
-        this.answer = `<div class="headerComponent">${this.state}</div>`;
+        this.answer = `<span class="headerComponent">${this.state}</span>`;
     }
 
     getData(){
@@ -43,13 +44,21 @@ export default class Header{
     makeLeftSubHeader() {
         const logoPictureTag = document.createElement("picture");
         const sourceTag = document.createElement('source');
-        sourceTag.setAttribute("srcset", "../../logo/logo.svg");
+        sourceTag.setAttribute("srcset", `${logo}`);
+        sourceTag.setAttribute("type", `type="image/svg+xml"`);
         logoPictureTag.appendChild(sourceTag);
+
+        const image = new Image();
+        image.src = logoWebp;
+        image.onload = () =>{
+            logoPictureTag.appendChild(image);
+        }
+
         this.$leftSubHeader.appendChild(logoPictureTag);
     }
 
     render() {
-        console.log(this.state)
+        this.makeLeftSubHeader();
         
         this.$rightSubHeader.innerHTML = this.state.datas.map((data) => {
             const HeaderComp = new HeaderComponent(data).getData();

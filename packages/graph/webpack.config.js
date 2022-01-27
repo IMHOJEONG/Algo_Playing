@@ -73,6 +73,14 @@ module.exports = {
         rules: [
 
           {
+            test: /\.webp/,
+            type: 'asset/resource'     
+           },
+          {
+            test: /\.svg/,
+            type: 'asset/inline'
+          },
+          {
             test: /\.ttf/,
             type: 'asset/resource'
           },
