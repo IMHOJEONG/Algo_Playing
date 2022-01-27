@@ -1,4 +1,4 @@
-
+import './header.scss';
 class HeaderComponent {
     constructor(state) {
         console.log(state);

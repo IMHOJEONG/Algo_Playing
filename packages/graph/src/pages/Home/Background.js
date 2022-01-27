@@ -14,14 +14,14 @@ const backgroundAnimation = (array, target) => {
 
   target.forEach((data, index) => {
 
-    data.animate([
-      // { order: array[index]},
-      { transform: 'translateY(-2vw)' }
-    ],{
-      duration: 4000,
-      iterations: Infinity,
-      direction: 'alternate',
-    });
+    // data.animate([
+    //   // { order: array[index]},
+    //   { transform: 'translateY(-2vw)' }
+    // ],{
+    //   duration: 4000,
+    //   iterations: Infinity,
+    //   direction: 'alternate',
+    // });
 
     // if(index == 0){
       
@@ -45,7 +45,11 @@ class Box{
     this.$button = document.createElement("button");
     this.$button.setAttribute('class', 'point');
     this.$button.innerHTML = this.state;
+    this.$explanation = document.createElement('div');
+
+
     this.$target.appendChild(this.$button);
+    this.$target.appendChild(this.$explanation);
   }
 
   render() {
@@ -80,6 +84,7 @@ export default class Background{
       this.$image.src= img_jpg ;
 
       $app.appendChild(this.$target);
+      this.playAnimation();
       this.render();
     }
     
@@ -97,13 +102,44 @@ export default class Background{
           
           parentDivNode = pointButton.parentNode;
           parentDivNode.setAttribute('data-clicked','true');
+          
         }
         else if(parentDivNode) {
           parentDivNode.removeAttribute('data-clicked');
+          console.log(parentDivNode);
+          parentDivNode.lastChild.removeAttribute('class');
           parentDivNode = null;
         }
         
       });
+
+      sectionNode.addEventListener('transitionend', (event) => {
+        const pointButton = event.target;
+        if(pointButton.tagName === 'BUTTON' && pointButton.getAttribute('class') === "point"){
+          
+          const explanationNode = pointButton.nextSibling;
+          // 클릭했을 때 이동 시작 
+          if(pointButton.parentNode.getAttribute('data-clicked') === "true"){
+
+            //pointButton.parentNode.style.justifyContent = 'center';
+            explanationNode.setAttribute('class', 'explanation');
+          }
+        }
+      });
+
+      // sectionNode.addEventListener('transitionstart', (event)=>{
+      //   const pointButton = event.target;
+      //   if(pointButton.tagName === 'BUTTON' && pointButton.getAttribute('class') === "point"){
+          
+      //     const explanationNode = pointButton.nextSibling;
+      //     // 원래대로 돌아오는 작업 
+
+      //       console.log('start');
+
+      //       explanationNode.removeAttribute('class');
+  
+      //   }
+      // });
 
       for(let i = 1; i <= target.length ; i++){
           array.push(i);  
@@ -116,7 +152,7 @@ export default class Background{
         (data, index) =>{
           return new Box({data, index}).render();
       }).join("");
-      this.playAnimation();
+      // this.playAnimation();
     }
     setState(nextState) {
       this.state = nextState;
