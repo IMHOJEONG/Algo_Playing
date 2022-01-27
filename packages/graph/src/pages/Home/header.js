@@ -23,10 +23,14 @@ class HeaderComponent {
 
 export default class Header{
     constructor({ $app, HeaderState }) {
-        console.log($app,HeaderState)
         this.state = HeaderState;
         this.$header = document.createElement('header');
-
+        this.$leftSubHeader = document.createElement('div');
+        this.$leftSubHeader.setAttribute('class', 'leftSubHeader');
+        this.$rightSubHeader = document.createElement('div');
+        this.$rightSubHeader.setAttribute('class', 'rightSubHeader');
+        this.$header.appendChild(this.$leftSubHeader);
+        this.$header.appendChild(this.$rightSubHeader);
         $app.appendChild(this.$header);
         this.render();
     }
@@ -36,12 +40,22 @@ export default class Header{
         this.render();
     }
 
+    makeLeftSubHeader() {
+        const logoPictureTag = document.createElement("picture");
+        const sourceTag = document.createElement('source');
+        sourceTag.setAttribute("srcset", "../../logo/logo.svg");
+        logoPictureTag.appendChild(sourceTag);
+        this.$leftSubHeader.appendChild(logoPictureTag);
+    }
+
     render() {
         console.log(this.state)
-        this.$header.innerHTML = this.state.datas.map((data) => {
+        
+        this.$rightSubHeader.innerHTML = this.state.datas.map((data) => {
             const HeaderComp = new HeaderComponent(data).getData();
             return HeaderComp;
         }).join("");
+
     }
     
 } 

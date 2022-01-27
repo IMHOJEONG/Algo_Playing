@@ -4,21 +4,35 @@
 header {
     width: 100vw;
     height: 5vh;
-    background-color: rgba(62, 52, 32, 0.2);
     position: sticky;
     display: flex;
-   
+    z-index: 2;
+    color: black;
     justify-content: space-between;
+    align-items: center;
+
+    & > .leftSubHeader, & > .rightSubHeader {
+        width: 50%;
+        height: inherit;
+        display: flex;
+    //   padding: 1vw;
+    //   text-align: center;
+    //   background-color: rgba(255,255,255,0.7);
+        font-family: 'codicon';
+        font-size: 1.5em;
+    }
+
+}
+
+.rightSubHeader {
+    justify-content: space-evenly;
+    align-items: center;
+
     & > * {
-      padding: 1vw;
-      text-align: center;
-      background-color: rgba(255,255,255,0.7);
-      font-family: 'codicon';
-      font-size: 1.5em;
+        width: inherit;
+        height: inherit;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-    & div:hover {
-      background-color: rgba(34,40,30,0.7);
-      color:white;
-    }
-  
-  }
+}

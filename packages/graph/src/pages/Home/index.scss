@@ -14,75 +14,14 @@ body {
 }
 
 
-.explanation {
-  width: 50vw;
-    position: absolute;
-    height: 30vh;
-    z-index: 3;
-    background-color: red;
-}
-
-
-section {
-  width: 100vw;
-  height: 95vh;
-  position: relative;
-  z-index: 2;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  
-  & > .box {
-    $s: &;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 3s;
-    &[data-clicked="true"] {
-
-      width: 100vw;
-      height: 95vh;
-      grid-area: 1 / 1 / 10 / 10;
-      
-      & .point {
-        transform: translate(-35vw, -25vh);
-      }
-    }
-
-  }   
-
-}
 
 .background {
   position: absolute;
   z-index: 1;
   width: 100vw;
-  height: 95vh;
+  height: 100vh;
 }
 
-
-.point {
-  width: 10vw;
-  height: 10vw;
-  display: flex;
-  border: 2px double #fff;
-  background: rgba(179, 185, 95, 0.9);
-  animation: ripple 3s linear infinite alternate;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  transition: all 3s;
-
-  color: rgb(51, 51, 255, 0.7);
-  font-size: 0.9vw;
-  font-weight: bold;
-  text-align: center;
-
-  &:hover {
-    
-    transform: scale(1.7);
-  }
-
-}
 
 @keyframes ripple {
   
@@ -92,10 +31,10 @@ section {
   
   50% {
     
-    
   }
+
   100% {
-    box-shadow: 0px 0px 250px 250px rgba(31, 30, 35, .4);
+    box-shadow: 0px 0px 5vw 5vw rgba(31, 30, 35, .4);
   }
   
 }
