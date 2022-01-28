@@ -12,10 +12,28 @@
     position: absolute;
     height: 70vh;
     z-index: 3;
-    background-color: rgba(138, 149, 193, 0.8);
+    background-color: rgba(138, 149, 193, 1);
     transition: all 3s;
     border: 1rem solid black;
     border-radius: 30px;
+    overflow-y: scroll;
+
+    // not-standard
+    &::-webkit-scrollbar{
+        width: 1vw;
+        height: 1.5vh;
+        background-color: #aaa;
+
+    }
+    &::-webkit-scrollbar-thumb {
+        background: #000;
+    }
+
+    .title {
+        font-size: 20px;    
+    }
+
+
 }
 
 .explanation h3 {
@@ -23,3 +41,4 @@
     font-size: 2.5vw;
     text-align: center;
 }
+

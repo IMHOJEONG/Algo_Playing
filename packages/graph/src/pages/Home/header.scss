@@ -31,14 +31,15 @@ header {
 .rightSubHeader {
     @include subHeader;
     justify-content: space-evenly;
-   
-    & > * {
-        // width: 1vw;
-        // height: 1vh;
-    }
 
     & span {
         text-align: center;
+        font-weight: bold;
+        font-size: 1em;
+    }
+
+    & span:hover {
+        color: red;
     }
 }
 
@@ -47,12 +48,16 @@ header {
     
     justify-content: flex-start;
     & img {
+
         width: 5vh;
         height: 5vh;
         border-radius: 50%;
+
     }
 
     & span {
         margin-left: 50px;
+        font-weight: bold;
+        font-size: 1.3em;
     }
 }

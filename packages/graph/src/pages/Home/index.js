@@ -1,16 +1,21 @@
-import '../../common/reset.scss';
 import './index.scss';
+import Loading from '../../common/loading/loading.js';
 import Background from './Background.js';
 import Header from './header.js';
 import Section from './Section.js';
 
 class Index {
   constructor({ $app,
+    LoadingState,
     initialState,
     HeaderState,
     SectionState
   
   }) {
+
+      new Loading({
+        $app, LoadingState
+      });
       new Background({ $app,
         initialState });
       new Header({ $app,
@@ -20,8 +25,17 @@ class Index {
       })
       
   }
+
+  setState(nextState) {
+
+  }
+
+  render(){
+    
+  }
 }
 const $app = document.querySelector('body');
+const LoadingState = true;
 const initialState = {
   circles: ["Brute Force", "Graph", "Binary Search", "Sorting", 'DP']  
 };
@@ -36,6 +50,7 @@ const SectionState = {
       contents: {
         name: "Brute Force",
         code: ``,
+        codeCaption: 'codeCaption',
       }
     }, 
     {

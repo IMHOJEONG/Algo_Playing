@@ -24,7 +24,7 @@ export default class Background{
       this.state = initialState;
       this.$image = new Image();
       this.$source = document.createElement('source');
-      this.$source.setAttribute('media', "(max-width: 959px)");
+      this.$source.setAttribute('media', "(max-width: 959px) and (max-height: 639px)");
       this.$source.setAttribute('srcset', img_webp);
       this.$source.setAttribute('type','image/webp');
       this.$source2 = document.createElement('source');
