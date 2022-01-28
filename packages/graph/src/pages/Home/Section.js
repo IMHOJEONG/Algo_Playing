@@ -1,17 +1,17 @@
 import './section.scss';
+import Explanation from './Explanation.js';
 
 class Box{
-    constructor({data, index}) {
+    constructor({data, index, explanation}) {
         this.state = data;
         this.$target = document.createElement('div');
         this.$target.setAttribute('class', `box box-${index}`);
         this.$button = document.createElement("button");
         this.$button.setAttribute('class', 'point');
         this.$button.innerHTML = this.state;
-        this.$explanation = document.createElement('div');
-
+        
         this.$target.appendChild(this.$button);
-        this.$target.appendChild(this.$explanation);
+        this.$target.appendChild(new Explanation({explanation}).render());
     }
 
     render() {
@@ -50,6 +50,8 @@ export default class Section {
             parentDivNode.removeAttribute('data-clicked');
             console.log(parentDivNode);
             parentDivNode.lastChild.removeAttribute('class');
+            parentDivNode.lastChild.setAttribute('class', 'noExplanation');
+
             parentDivNode = null;
           }
           
@@ -72,9 +74,11 @@ export default class Section {
     }
 
     render() {
+        const explanations = this.state.explanataions;
         this.$target.innerHTML = this.state.circles.map(
             (data, index) =>{
-              return new Box({data, index}).render();
+              const explanation = explanations[index];
+              return new Box({data, index, explanation}).render();
           }).join("");
     }
 

@@ -19,7 +19,6 @@ class Index {
         $app, SectionState       
       })
       
-      
   }
 }
 const $app = document.querySelector('body');
@@ -30,7 +29,44 @@ const HeaderState = {
   datas: ["Info", "Algorithms", "made by"]
 };
 const SectionState = {
-  circles: ["Brute Force", "Graph", "Binary Search", "Sorting", 'DP']  
+  circles: ["Brute Force", "Graph", "Binary Search", "Sorting", 'DP'],
+  explanataions: [
+    {
+      title: "Brute Force",
+      contents: {
+        name: "Brute Force",
+        code: ``,
+      }
+    }, 
+    {
+      title: "Graph",
+      contents: {
+        name: "Graph",
+        code: ``,
+      }
+    }, 
+    {
+      title: "Binary Search",
+      contents: {
+        name: "Binary Search",
+        code: ``,
+      }
+    },
+    {
+      title: "Sorting",
+      contents: {
+        name: "Sorting",
+        code: ``,
+      }
+    },
+    {
+      title: 'DP',
+      contents: {
+        name: "DP",
+        code: ``,
+      }
+    }
+  ]
 }
 new Index({
   $app,

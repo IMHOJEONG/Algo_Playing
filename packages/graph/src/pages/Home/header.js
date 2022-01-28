@@ -14,7 +14,7 @@ class HeaderComponent {
     }
 
     render(){
-        this.answer = `<span class="headerComponent">${this.state}</span>`;
+        this.answer = `<span>${this.state}</span>`;
     }
 
     getData(){
@@ -54,7 +54,12 @@ export default class Header{
             logoPictureTag.appendChild(image);
         }
 
+        const nameTag = document.createElement('span');
+
+        nameTag.innerText = 'Best A'
+        
         this.$leftSubHeader.appendChild(logoPictureTag);
+        this.$leftSubHeader.appendChild(nameTag);
     }
 
     render() {

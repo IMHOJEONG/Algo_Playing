@@ -4,7 +4,6 @@ const MonacoWebpackPlugin = require("monaco-editor-webpack-plugin");
 const devMode = process.env.NODE_ENV !== "production";
 const autoprefixer = require('autoprefixer');
 
-
 const PnpWebpackPlugin = require(`pnp-webpack-plugin`);
 const path = require("path")
 const APP_DIR = path.resolve(__dirname, 'src');
@@ -35,9 +34,17 @@ const HtmlPlugins = htmlNames.map(name => {
     hash: true,
     filename: `${name}.html`,
     template: `./src/template/${name}.html`,
-    chunks: [`${name}`]
+    chunks: [`${name}`],
+    favicon: './src/logo/favicon.ico',
   })
 });
+
+// const FaviconPlugins = () => {
+//   return new FaviconsWebpackPlugin({
+//     logo: './src/logo/favicon.ico',
+//     mode: 'webapp',
+//   })
+// }
 
 module.exports = {
     mode:'development',
@@ -144,11 +151,13 @@ module.exports = {
       devMode ? 
       [new MonacoWebpackPlugin(),
         CustomBundleSetting(),
+        // FaviconPlugins()
       ].concat(HtmlPlugins) 
       : 
       [new MiniCssExtractPlugin(),
       new MonacoWebpackPlugin(),
-        CustomBundleSetting() 
+        CustomBundleSetting(), 
+        // FaviconPlugins()
       ]
       .concat(HtmlPlugins)
     ),

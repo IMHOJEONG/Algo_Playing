@@ -1,15 +1,6 @@
-
-.explanation {
-    width: 50vw;
-      position: absolute;
-      height: 30vh;
-      z-index: 3;
-      background-color: red;
-  }
-
-  section {
+section {
     width: 100vw;
-    height: 95vh;
+    height: 90vh;
     position: relative;
     z-index: 2;
     display: grid;
@@ -44,16 +35,16 @@
     justify-content: center;
     align-items: center;
     border-radius: 50%;
-    transition: transform 2s, scale 1s;
+    transition: transform 2s, scale 0.5s;
   
     color: rgb(51, 51, 255, 0.7);
-    font-size: 0.9vw;
+    font-size: 1.5vw;
     font-weight: bold;
     text-align: center;
   
     &:hover {
       
-      transform: scale(1.7);
+      transform: scale(1.3);
     }
   
 }
