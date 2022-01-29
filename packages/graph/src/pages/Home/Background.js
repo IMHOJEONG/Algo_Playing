@@ -1,3 +1,5 @@
+import Component from "../../common/Component";
+
 const img_jpg = `https://i.ibb.co/Lxm6x2T/architecture-ga223faef9-1920.jpg`;
 const img_webp = `https://i.ibb.co/WFCFwL6/back.webp`;
 const img_webp_1920 = "https://i.ibb.co/th6zRkp/back-1920.webp";
@@ -17,40 +19,27 @@ const backgroundAnimation = (array, target) => {
 
 }
 
+export default class Background extends Component{
 
-export default class Background{
-    constructor({ $app, initialState }) {
+    setup() {
       
-      this.state = initialState;
-      this.$image = new Image();
-      this.$source = document.createElement('source');
-      this.$source.setAttribute('media', "(max-width: 959px) and (max-height: 639px)");
-      this.$source.setAttribute('srcset', img_webp);
-      this.$source.setAttribute('type','image/webp');
-      this.$source2 = document.createElement('source');
-      this.$source2.setAttribute('media', "(max-width: 1919px)");
-      this.$source2.setAttribute('srcset', img_webp_1920);
-      this.$source2.setAttribute('type','image/webp');
-
-      this.$imageBackground = document.createElement('picture');
-
-      this.$imageBackground.appendChild(this.$source);
-      this.$imageBackground.appendChild(this.$image);
-      this.$imageBackground.setAttribute('class', 'background');
-      $app.appendChild(this.$imageBackground);
+    }
     
-      this.$image.src= img_jpg ;
+    template() {
 
-      this.render();
+      const { circles } = this.props;
+      return `
+        <picture>
+          <source media="(max-width: 959px) and (max-height: 639px)" 
+           type="image/webp" srcset="${img_webp}">
+          <source media="(max-width: 1919px)" 
+           type="image/webp" srcset="${img_webp_1920}">
+          </source>
+          <img src="${img_jpg}"/>
+        </picture>
+      `;
     }
 
-
-    //   for(let i = 1; i <= target.length ; i++){
-    //       array.push(i);  
-    //   }
-    //   backgroundAnimation(array, target);
-    // }
-    
     render() {
       
     }
